@@ -1,0 +1,16 @@
+package UI;
+
+import java.util.ArrayList;
+
+public class UI {
+	
+	private ArrayList<Button> buttonList;
+	
+	
+	public UI(){
+		buttonList = new ArrayList<Button>();
+	}
+	
+	
+	
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.awt.DisplayMode"/>
+<fullyQualifiedTypeName name="helpers.Arist"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.util.ResourceLoader"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.opengl.TextureLoader"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="org.lwjgl.Sys"/>
+<fullyQualifiedTypeName name="helpers.Clock"/>
+<fullyQualifiedTypeName name="Data.Enemy"/>
+<fullyQualifiedTypeName name="org.lwjgl.input.Mouse"/>
+<fullyQualifiedTypeName name="org.lwjgl.input.Keyboard"/>
+<fullyQualifiedTypeName name="Data.Tile"/>
+<fullyQualifiedTypeName name="org.lwjgl.opengl.Display"/>
+<fullyQualifiedTypeName name="org.lwjgl.opengl.DisplayMode"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+<fullyQualifiedTypeName name="org.lwjgl.util.Color"/>
+<fullyQualifiedTypeName name="data.Tile"/>
+<fullyQualifiedTypeName name="data.Enemy"/>
+<fullyQualifiedTypeName name="data.MainMenu"/>
+<fullyQualifiedTypeName name="data.Editor"/>
+<fullyQualifiedTypeName name="data.Game"/>
+<fullyQualifiedTypeName name="helpers.StateManager"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.opengl.Texture"/>
+<fullyQualifiedTypeName name="helpers.Artist"/>
+<fullyQualifiedTypeName name="UI.UI"/>
+</qualifiedTypeNameHistroy>
