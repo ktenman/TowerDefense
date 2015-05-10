@@ -7,6 +7,11 @@ import org.lwjgl.opengl.DisplayMode;
 import static org.lwjgl.opengl.GL11.*; // impordime staatilise meetodi, et saaks koodi lühemalt kirjutada
 
 public class Main {
+	
+	float x = 100;
+	float y = 100;
+	float width = 50;
+	float height = 50;
 
 	public Main(){
 		Display.setTitle("Mäng"); //anname pealkirja
@@ -49,6 +54,20 @@ public class Main {
 		 */
 		glMatrixMode(GL_MODELVIEW);
 		while(!Display.isCloseRequested()){ //true if the user or operating system has asked the window to close
+			// tile based game 
+			glBegin(GL_LINES); // joone joonistamiseks
+			glVertex2f(10, 10); // alguskoordinaadid
+			glVertex2f(100, 50); // lõppkoordinaadid
+			glEnd();
+			
+			glBegin(GL_QUADS); // teema ruudukujulise kastikese
+			glVertex2f(x, y); // vasak yleval
+			glVertex2f(x + width, y); // parem yleval
+			glVertex2f(x + width, y + height); // parem all
+			glVertex2f(x, y + height); // vasak all
+			glEnd();
+			
+			
 			
 			// ekraani refreshimine + saime lahti veast NOT RESPONDING
 			Display.update();
