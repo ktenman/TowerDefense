@@ -9,7 +9,7 @@ public class TileGrid {
 	
 	public Tile[][] map;
 	
-	/*
+	
 	public TileGrid() {
 		map = new Tile[20][15];
 		for (int i = 0; i < map.length; i++) {
@@ -18,7 +18,7 @@ public class TileGrid {
 			}
 		}
 	}
-	*/
+	
 	public TileGrid(int[][] newMap){
 		map = new Tile[20][15];
 		for (int i = 0; i < map.length; i++) {
@@ -53,5 +53,14 @@ public class TileGrid {
 			}
 		}
 	}
+
+	public void SetTile(int xCoord, int yCoord, TileType type) {
+		map[xCoord][yCoord] = new Tile(xCoord * 64, yCoord * 64, 64, 64, type);
+	}
+	
+	public Tile GetTile(int xCoord, int yCoord){
+		return map[xCoord][yCoord];
+	}
+	
 
 }

@@ -1,6 +1,7 @@
 package ee.tlu.objektid;
 
 import org.newdawn.slick.opengl.Texture;
+
 import static ee.tlu.klassid.Artist.*;
 
 public class Tile {
@@ -15,6 +16,7 @@ public class Tile {
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		this.type = type;
 		this.texture = QuickLoad(type.textureName);
 	}
 	
@@ -81,6 +83,8 @@ public class Tile {
 		this.type = type;
 	}
 	
-	
+	public String toString(){
+		return "x: "+x+"; y: "+y+"; width: "+width+"; height: "+height+"; texture: "+texture+"; type: "+type;
+	}
 
 }
