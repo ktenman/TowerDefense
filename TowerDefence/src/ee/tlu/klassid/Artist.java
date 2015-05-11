@@ -1,23 +1,16 @@
 package ee.tlu.klassid;
 
-import static org.lwjgl.opengl.GL11.GL_MODELVIEW;
-import static org.lwjgl.opengl.GL11.GL_PROJECTION;
-import static org.lwjgl.opengl.GL11.GL_QUADS;
-import static org.lwjgl.opengl.GL11.glBegin;
-import static org.lwjgl.opengl.GL11.glEnd;
-import static org.lwjgl.opengl.GL11.glLoadIdentity;
-import static org.lwjgl.opengl.GL11.glMatrixMode;
-import static org.lwjgl.opengl.GL11.glOrtho;
-import static org.lwjgl.opengl.GL11.glVertex2f;
+import static org.lwjgl.opengl.GL11.*;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
+import org.newdawn.slick.opengl.Texture;
 
 public class Artist {
 	
-	public static final int WIDTH = 600, HEIGHT = 400; // final seega muutujad on suurte tähtedega
-	
+	public static final int WIDTH = 1280, HEIGHT = 960; // final seega muutujad on suurte tähtedega
+	// 1280/64=20 ja 960/64=15 tilesi
 	public static void BeginSession(){
 		Display.setTitle("Mäng"); //anname pealkirja
 		
@@ -45,7 +38,7 @@ public class Artist {
 		 * 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
 		 * but in some cases it is more efficient.
 		 */
-		glOrtho(0, 600, 400, 0, 1, -1);
+		glOrtho(0, WIDTH, HEIGHT, 0, 1, -1);
 		/*
 		 * left, right
 		 * Specify the coordinates for the left and right vertical clipping planes.
@@ -58,8 +51,12 @@ public class Artist {
 		 * These values are negative if the plane is to be behind the viewer.
 		 */
 		glMatrixMode(GL_MODELVIEW);
+		glEnable(GL_TEXTURE_2D); // lubab meil joonistada tekstuure ekraanile
+		
 	}
 	
+
+
 	public static void DrawQuad(float x, float y, float width, float height){
 		glBegin(GL_QUADS); // teema ruudukujulise kastikese
 		glVertex2f(x, y); // vasak yleval
@@ -68,6 +65,25 @@ public class Artist {
 		glVertex2f(x, y + height); // vasak all
 		glEnd();
 	}
-
+	
+	public static void DrawQuadTex(float x, float y, float width, float height, Texture tex){
+		tex.bind();
+		glTranslatef(x, y, 0); // 2d mängul pole z koordinaati vaja -> z=0
+		// x ja y muutsime 0-deks
+		//System.out.println(x+" "+y);
+		glBegin(GL_QUADS);
+		glTexCoord2f(0, 0); // yleval vasak
+		glVertex2f(0, 0);
+		glTexCoord2f(1, 0); // yleval parem
+		glVertex2f(width, 0);
+		glTexCoord2f(1, 1); // all parem
+		glVertex2f(width, height);
+		glTexCoord2f(0, 1); // all vasak
+		glVertex2f(0, height);
+		glLoadIdentity();
+		glEnd();	
+	}
+	
+	
 	
 }
