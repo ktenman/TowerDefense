@@ -56,10 +56,9 @@ public class Artist {
 		 */
 		glMatrixMode(GL_MODELVIEW);
 		glEnable(GL_TEXTURE_2D); // lubab meil joonistada tekstuure ekraanile
-		
+		glEnable(GL_BLEND); // et enemy pilt ei oleks kandiline
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // et enemy pilt ei oleks kandiline	
 	}
-	
-
 
 	public static void DrawQuad(float x, float y, float width, float height){
 		glBegin(GL_QUADS); // teema ruudukujulise kastikese
@@ -69,8 +68,6 @@ public class Artist {
 		glVertex2f(x, y + height); // vasak all
 		glEnd();
 	}
-	
-
 	
 	public static void DrawQuadTex(Texture tex, float x, float y , float width, float height){
 		tex.bind();
