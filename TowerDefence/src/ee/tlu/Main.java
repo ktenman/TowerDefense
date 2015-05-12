@@ -1,5 +1,6 @@
 package ee.tlu;
 import org.lwjgl.opengl.Display;
+import org.newdawn.slick.opengl.Texture;
 
 import ee.tlu.klassid.Enemy;
 import ee.tlu.objektid.Tile;
@@ -16,7 +17,7 @@ public class Main {
 		//Texture t2 = LoadTexture("ee/tlu/hoidla/grass64.png", "PNG");
 		//Texture t = QuickLoad("dirt64");
 		//Texture t2 = QuickLoad("grass64");
-		//Tile tile = new Tile(0, 0, 64, 64, TileType.Grass);
+		Tile tile = new Tile(0, 8, 64, 64, TileType.Water);
 		//Tile tile2 = new Tile(0, 128, 64, 64, TileType.Dirt);
 		int[][] map = {
 				{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -51,8 +52,8 @@ public class Main {
 		//grid.SetTile(1, 4, TileType.Water);
 		//grid.SetTile(2, 4, TileType.Water);
 		//grid.SetTile(0, 0, TileType.Water);
-		System.out.println(grid.GetTile(0, 0).getType());
-		grid.SetTile(5, 5, grid.GetTile(0, 0).getType());
+		//System.out.println(grid.GetTile(0, 0).getType());
+		//grid.SetTile(5, 5, grid.GetTile(0, 0).getType());
 		/*
 		for (int i = 0; i < map.length; i++) {
 			for (int j = 0; j < map[i].length; j++) {
@@ -60,19 +61,17 @@ public class Main {
 			}
 		}
 		*/
-		System.out.println(grid.GetTile(5, 5));
-		Enemy e = new Enemy(QuickLoad("ufo64"), grid.GetTile(5, 5), 64, 64, 2);
+		Enemy e = new Enemy(QuickLoad("ufo64"), grid.GetTile(6, 5), 64, 64, 2);
 		while(!Display.isCloseRequested()){ //true if the user or operating system has asked the window to close	
-			//DrawQuadTex(tile.getTexture(),tile.getX(), tile.getY(), tile.getWidth(), tile.getHeight());
+			DrawQuadTex(tile.getTexture(),tile.getX(), tile.getY(), tile.getWidth(), tile.getHeight());
 			//DrawQuadTex(tile2.getTexture(),tile2.getX(), tile2.getY(), tile2.getWidth(), tile2.getHeight());
 			//DrawQuadTex(t, 0, 0, 64, 64);
 			//DrawQuadTex(t2, 64, 0, 64, 64);
 			//tile.Draw();
 			//tile2.Draw();
-			
-			e.Draw();
+			DrawQuadTex(e.getTexture(), e.getX(), e.getY(), e.getWidth(), e.getHeight());
 			grid.Draw();
-			
+			//e.Draw();
 			//DrawQuad(50, 50, 100, 100);
 			//DrawQuad(150, 150, 100, 100);
 			
