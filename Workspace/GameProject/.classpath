@@ -6,12 +6,12 @@
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/Admin/Documents/GitHub/Workspace/lib/natives"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Admin/Documents/GitHub/Java/lib/jars/slick-util.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Admin/Documents/GitHub/Java/lib/jars/lwjgl.jar">
+	<classpathentry kind="lib" path="D:/Dropbox/Documents/GitHub/TowerDefense/Workspace/lib/jars/lwjgl.jar">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/Hardo/Desktop/Workspace/lib/natives"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="D:/Dropbox/Documents/GitHub/TowerDefense/Workspace/lib/natives"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Admin/Documents/GitHub/Java/lib/jars/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="D:/Dropbox/Documents/GitHub/TowerDefense/Workspace/lib/jars/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="D:/Dropbox/Documents/GitHub/TowerDefense/Workspace/lib/jars/slick-util.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
