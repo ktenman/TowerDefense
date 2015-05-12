@@ -13,5 +13,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Admin/Documents/GitHub/Java/lib/jars/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Admin/Documents/GitHub/TowerDefense/TowerDefence/lib/mysql-connector-java-5.1.35-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

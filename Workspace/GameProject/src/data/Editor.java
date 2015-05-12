@@ -1,5 +1,7 @@
 package data;
 
+import java.sql.SQLException;
+
 import helpers.Clock;
 import static helpers.Artist.HEIGHT;
 import static helpers.Leveler.*;
@@ -38,7 +40,12 @@ public class Editor {
 				MoveIndex();
 			}
 			if(Keyboard.getEventKey()==Keyboard.KEY_S && Keyboard.getEventKeyState()){
-				saveMap("MapTest5", grid);
+				try {
+					saveMap("MapTest5", grid);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 	
