@@ -19,6 +19,7 @@ public class Enemy {
 		this.width = width;
 		this.health = height;
 		this.speed = speed;
+		
 	}
 	
 	public int getWidth() {
@@ -87,7 +88,7 @@ public class Enemy {
 
 	public void Draw(){
 		DrawQuadTex(texture, x, y, width, height);
-		//System.out.println(texture+" "+x+" "+y+" "+width+" "+health);
+		System.out.println(texture+" "+x+" "+y+" "+width+" "+health);
 	}
 	
 }

@@ -23,12 +23,20 @@ public class StateManager {
 			mainMenu.update();
 			break;
 		case GAME:
-			
+			if (game== null)
+				game = new Game();
+			System.out.println("Game mode not working, update needed!");
+			//game.update();
 			break;
 		case EDITOR:
+			if (editor== null)
+				editor = new Editor();
+			editor.update();
 			
 			break;
 		}
 	}
-	
+	public static void setState(GameState newState){
+		gameState = newState;
+	}
 }

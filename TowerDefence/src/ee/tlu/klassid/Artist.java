@@ -19,7 +19,7 @@ public class Artist {
 		Display.setTitle("Mäng"); //anname pealkirja
 		
 		try {
-			Display.setDisplayMode(new DisplayMode(600, 400)); //peaaknale mõõdud ning loomine
+			Display.setDisplayMode(new DisplayMode(1280, 960)); //peaaknale mõõdud ning loomine
 			Display.create(); 
 		} catch (LWJGLException e) {
 			e.printStackTrace();

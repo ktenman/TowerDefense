@@ -23,9 +23,9 @@ public class Main {
 				{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 				{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 				{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-				{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-				{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-				{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+				{0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+				{0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+				{0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 				{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 				{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 				{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -61,7 +61,8 @@ public class Main {
 			}
 		}
 		*/
-		Enemy e = new Enemy(QuickLoad("ufo64"), grid.GetTile(6, 5), 64, 64, 2);
+	//Enemy e = new Enemy(QuickLoad("ufo64"), grid.GetTile(6, 5), 64, 64, 2);
+		Enemy e = new Enemy(QuickLoad("ufo64"), grid.GetTile(5, 5), 64, 64, 4);
 		while(!Display.isCloseRequested()){ //true if the user or operating system has asked the window to close	
 			DrawQuadTex(tile.getTexture(),tile.getX(), tile.getY(), tile.getWidth(), tile.getHeight());
 			//DrawQuadTex(tile2.getTexture(),tile2.getX(), tile2.getY(), tile2.getWidth(), tile2.getHeight());
@@ -71,6 +72,7 @@ public class Main {
 			//tile2.Draw();
 			DrawQuadTex(e.getTexture(), e.getX(), e.getY(), e.getWidth(), e.getHeight());
 			grid.Draw();
+			e.Draw();
 			//e.Draw();
 			//DrawQuad(50, 50, 100, 100);
 			//DrawQuad(150, 150, 100, 100);

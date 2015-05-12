@@ -24,14 +24,12 @@ public class Player {
 		
 		
 	}
-	
+	/* Set Tile pole siin enam vajalik ilmselt kolis editori */
 	public void SetTile(){
-		
-		
-		
 		grid.SetTile((int) Math.floor(Mouse.getX()/ 64),
 				(int)(Math.floor((Mouse.getY()*-1)/64)+14 ),types[index]);
 	}
+	
 	public void Update(){
 		if (Mouse.isButtonDown(0)){
 			SetTile();
