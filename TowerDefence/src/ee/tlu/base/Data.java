@@ -26,7 +26,7 @@ public class Data {
 	public Data() throws SQLException {
 		
 		connection = DriverManager.getConnection(address);
-/*		System.out.println("Sisesta nimi: ");
+	/*	System.out.println("Sisesta nimi: ");
 		name = sc.nextLine();
 		System.out.println("Sisesta kaart: ");
 		content = sc.nextLine();
@@ -38,8 +38,9 @@ public class Data {
 			System.out.printf("Sisesta id %d/%d: ", i+1, ids.length);
 			ids[i] = sc.nextInt();	
 		}
-		deleteMaps(ids);*/
-		
+		deleteMaps(ids);
+		*/
+
 		////
 	/*	System.out.println("Sisu muutmine: ");
 		System.out.println("Sisesta nimi: ");
@@ -77,9 +78,7 @@ public class Data {
 			}
 		}
 		System.out.println(Arrays.deepToString(matrix));
-		System.out.println(Arrays.deepToString(map));
-		
-		
+		System.out.println(Arrays.deepToString(map));	
 	}
 	
 	private static void addMap(String name, String map) throws SQLException {
@@ -111,7 +110,8 @@ public class Data {
 		ResultSet result = statement.executeQuery("SELECT * FROM `towerdefence`");
 		List<Map> maps = new ArrayList<>();
 		while (result.next()) {
-			maps.add(new Map(result.getInt("id"), result.getString("name"), result.getString("content")));
+			maps.add(new Map(result.getInt("id"), result.getString("name"),
+					result.getString("content"), result.getString("date")));
 		}
 		return maps;
 	}
