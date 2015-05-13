@@ -60,5 +60,8 @@ public class Editor {
 			index = 0;
 			}
 		}
-	
+	public static void main(String[] args){
+		Editor editor = new Editor();
+		editor.update();
+	}
 }

@@ -6,12 +6,14 @@
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/Admin/Prog_põhi/Workspace/lib/natives"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Admin/Documents/GitHub/TowerDefense/TowerDefence/lib/jars/lwjgl.jar">
+	<classpathentry kind="lib" path="D:/Dropbox/Documents/GitHub/TowerDefense/TowerDefence/lib/jars/lwjgl.jar">
 		<attributes>
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="D:/Dropbox/Documents/GitHub/TowerDefense/TowerDefence/lib/natives"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Admin/Documents/GitHub/TowerDefense/TowerDefence/lib/jars/lwjgl_util.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Admin/Documents/GitHub/TowerDefense/TowerDefence/lib/jars/slick-util.jar"/>
+	<classpathentry kind="lib" path="D:/Dropbox/Documents/GitHub/TowerDefense/TowerDefence/lib/jars/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="D:/Dropbox/Documents/GitHub/TowerDefense/TowerDefence/lib/jars/mysql-connector-java-5.1.35-bin.jar"/>
+	<classpathentry kind="lib" path="D:/Dropbox/Documents/GitHub/TowerDefense/TowerDefence/lib/jars/prettytime-3.2.7.Final.jar"/>
+	<classpathentry kind="lib" path="D:/Dropbox/Documents/GitHub/TowerDefense/TowerDefence/lib/jars/slick-util.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
