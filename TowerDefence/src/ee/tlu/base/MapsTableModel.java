@@ -58,7 +58,7 @@ public class MapsTableModel implements TableModel {
 		} else if(columnIndex == 1){
 			return map.getContent();
 		} else if(columnIndex == 2){
-			return map.getDate().toString();
+			return map.prettyTime();
 		}
 		return null;
 	}

@@ -5,11 +5,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import org.ocpsoft.prettytime.PrettyTime;
+
 public class Map {
 	
 	private String name, content;
 	private int id;
 	private Date date;
+	private PrettyTime time;
 
 	public Map(int id, String name, String content, String date) {
 		this.id = id;
@@ -27,6 +30,11 @@ public class Map {
 		} catch (ParseException e) {
 			return null;
 		}
+	}
+	
+	public String prettyTime(){
+		time = new PrettyTime();
+		return time.format(date);
 	}
 	
 	public String getName() {

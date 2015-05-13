@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="D:/Dropbox/Documents/GitHub/TowerDefense/TowerDefence/lib/jars/lwjgl_util.jar"/>
 	<classpathentry kind="lib" path="D:/Dropbox/Documents/GitHub/TowerDefense/TowerDefence/lib/jars/slick-util.jar"/>
 	<classpathentry kind="lib" path="D:/Dropbox/Documents/GitHub/TowerDefense/TowerDefence/lib/jars/mysql-connector-java-5.1.35-bin.jar"/>
+	<classpathentry kind="lib" path="D:/Dropbox/Documents/GitHub/TowerDefense/TowerDefence/lib/jars/prettytime-3.2.7.Final.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
