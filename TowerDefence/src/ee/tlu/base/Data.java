@@ -55,14 +55,14 @@ public class Data {
 			System.out.println(map.toString());
 		}
 		List < Map > maps = getMaps();
-		System.out.println(maps.get(0).getContent());
-		String koma, mapString = "";
+		System.out.println(maps.get(0).getDate());
+		String comma, mapString = "";
 		for (int i = 0; i < maps.get(0).getContent().length(); i++) {
-			koma = "";
+			comma = "";
 			if ((i + 1) % 20 == 0) {
-				koma = ",";
+				comma = ",";
 			}
-			String s = maps.get(0).getContent().charAt(i) + " " + koma;
+			String s = maps.get(0).getContent().charAt(i) + " " + comma;
 			mapString += s;
 		}
 		String[] rows = mapString.split(",");
