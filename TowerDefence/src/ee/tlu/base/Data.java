@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-
+import javax.swing.JTable;
 
 import static ee.tlu.base.Config.*;
 public class Data {
@@ -22,6 +22,7 @@ public class Data {
 	private int id;
 	private int count;
 	private int[] ids;
+	private int sort;
 	
 	public Data() throws SQLException {
 		
@@ -96,12 +97,12 @@ public class Data {
 		}
 	}
 	
-	public void updateMap(String name, String content, int id) throws SQLException{
+	public void updateMap(Map map) throws SQLException{
 		String s = "UPDATE `if14_towerdefence`.`towerdefence` SET `name` = ?, `content` = ? WHERE `towerdefence`.`id` = ?";
 		PreparedStatement statement = connection.prepareStatement(s);
-		statement.setString(1, name);
-		statement.setString(2, content);
-		statement.setInt(3, id);
+		statement.setString(1, map.getName());
+		statement.setString(2, map.getContent());
+		statement.setInt(3, map.getId());
 		statement.execute();
 	}
 	
@@ -114,6 +115,14 @@ public class Data {
 					result.getString("content"), result.getString("date")));
 		}
 		return maps;
+	}
+	
+	public JTable getTable(List<Map> maps) throws SQLException{
+		return new JTable(new MapsTableModel(maps));		
+	}
+	
+	public void setSort(int sort){
+		this.sort = sort;
 	}
 	
 

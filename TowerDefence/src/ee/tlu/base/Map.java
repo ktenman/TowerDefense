@@ -11,7 +11,6 @@ public class Map {
 	private int id;
 	private Date date;
 
-
 	public Map(int id, String name, String content, String date) {
 		this.id = id;
 		this.name = name;
@@ -19,7 +18,7 @@ public class Map {
 		this.date = parseDate(date);
 	}
 	
-	public static Date parseDate(String date) {
+	private Date parseDate(String date) {
 		try {
 			//return new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.ENGLISH).parse(date);
 			//Wed May 13 00:00:42 EEST 2015
@@ -29,7 +28,7 @@ public class Map {
 			return null;
 		}
 	}
-
+	
 	public String getName() {
 		return name;
 	}
