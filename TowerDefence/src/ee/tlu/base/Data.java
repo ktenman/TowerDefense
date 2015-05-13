@@ -107,6 +107,7 @@ public class Data {
 	}
 	
 	public List<Map> getMaps() throws SQLException {
+		String sort_string_for_MySQL = getSortStringForMySQL();
 		Statement statement = connection.createStatement();
 		ResultSet result = statement.executeQuery("SELECT * FROM `towerdefence`");
 		List<Map> maps = new ArrayList<>();
@@ -117,6 +118,17 @@ public class Data {
 		return maps;
 	}
 	
+	private String getSortStringForMySQL() {
+		if(sort == 0){
+			return "ORDER BY name";
+		} else if(sort == 1){
+			return "ORDER BY content";
+		} else if(sort == 2){
+			return "ORDER BY date";
+		}
+		return null;
+	}
+
 	public JTable getTable(List<Map> maps) throws SQLException{
 		return new JTable(new MapsTableModel(maps));		
 	}

@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.TableColumn;
 
 
 public class Gui extends JApplet implements MouseListener {
@@ -24,11 +26,15 @@ public class Gui extends JApplet implements MouseListener {
 	JScrollPane scroll_pane = null;
 	JTable table = null;
 	JPanel main_panel = new JPanel();
-	JButton add_row_button = new JButton("Lisa uus rida");
-	JButton delete_row_button = new JButton("Kustuta valitud rida/read");
-	JPanel south_panel = new JPanel(); // ridu, tulpi
-	JPanel add_row_button_panel = new JPanel();
-	JPanel delete_row_button_panel = new JPanel();
+	JButton update_button = new JButton("Update");
+	JButton delete_map_button = new JButton("Delete");
+	JButton add_map_button = new JButton("Add");
+	JButton edit_map_button = new JButton("Edit");
+	JPanel south_panel = new JPanel(); 
+	JPanel update_button_panel = new JPanel();
+	JPanel delete_map_button_panel = new JPanel();
+	JPanel add_map_button_panel = new JPanel();
+	JPanel edit_map_button_panel = new JPanel();
 	
 	public void init(){
 		setMyLayout();
@@ -42,6 +48,17 @@ public class Gui extends JApplet implements MouseListener {
 			data = new Data();
 			maps = data.getMaps();
 			table = data.getTable(maps);
+			TableColumn column = null;
+			for (int i = 0; i < 3; i++) {
+			    column = table.getColumnModel().getColumn(i);
+			    if (i == 1) {
+			        column.setPreferredWidth(200); //third column is bigger
+			    } else {
+			        column.setPreferredWidth(50);
+			    }
+			}
+			
+			
 		} catch(SQLException e){
 			e.printStackTrace();
 		}
@@ -51,20 +68,39 @@ public class Gui extends JApplet implements MouseListener {
 		// Tabeli "vaade"
 		scroll_pane = new JScrollPane(table);
 		main_panel.add(scroll_pane);
-		table.getTableHeader().addMouseListener(this);		
+		setTableColumnWidth();
+		table.getTableHeader().addMouseListener(this);
 	}
 	
+	private void setTableColumnWidth() {
+		TableColumn column = null;
+		for (int i = 0; i < 3; i++) {
+		    column = table.getColumnModel().getColumn(i);
+		    if (i == 1) {
+		        column.setPreferredWidth(200); //teine column on suurem
+		    } else {
+		        column.setPreferredWidth(50);
+		    }
+		}
+	}
+
 	private void setMyLayout(){
 		setSize(700, 600);
 		setLayout(new BorderLayout());
 		add(BorderLayout.CENTER, main_panel);
 		add(BorderLayout.SOUTH, south_panel);
-		add_row_button_panel.add(add_row_button);
-		south_panel.add(add_row_button_panel);
-		delete_row_button_panel.add(delete_row_button);
-		south_panel.add(delete_row_button_panel);
-		add_row_button.addMouseListener(this);
-		delete_row_button.addMouseListener(this);
+		update_button_panel.add(update_button);
+		delete_map_button_panel.add(delete_map_button);
+		add_map_button_panel.add(add_map_button);
+		edit_map_button_panel.add(edit_map_button);
+		south_panel.add(update_button_panel);
+		south_panel.add(delete_map_button_panel);
+		south_panel.add(add_map_button_panel);
+		south_panel.add(edit_map_button_panel);
+		update_button.addMouseListener(this);
+		delete_map_button.addMouseListener(this);
+		add_map_button.addMouseListener(this);
+		edit_map_button.addMouseListener(this);
 
 	}
 	
@@ -77,14 +113,11 @@ public class Gui extends JApplet implements MouseListener {
 		}
 	    scroll_pane.getViewport().remove(table);
 		scroll_pane.getViewport().add(table);
+		setTableColumnWidth();
 		// hiirekuular läheb header'is pärast tabeli uuesti loomist kaduma
 		table.getTableHeader().addMouseListener(this);
 	}
 	
-	private void addRow(){
-		updateTable();
-	}
-
 	private int[] returnSelectedRowsNumbers(){	
 		return table.getSelectedRows();
 	}
@@ -109,15 +142,15 @@ public class Gui extends JApplet implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if (e.getSource() == add_row_button) {
-			addRow();
-		} else if (e.getSource() == delete_row_button) {
+		if (e.getSource() == update_button) {
+			updateTable();
+		} else if (e.getSource() == delete_map_button) {
 			int selected_rows_ids[] = returnSelectedRowsNumbers();
 			if (selected_rows_ids.length == 0) {
-				JOptionPane.showMessageDialog(this, "Ühtegi rida pole valitud!");
+				JOptionPane.showMessageDialog(this, "No maps selected.");
 			} else {
 				try {
-					int confirmation = JOptionPane.showConfirmDialog(this, "Oled kindel, et tahad valitud rea(d) kustutada?");
+					int confirmation = JOptionPane.showConfirmDialog(this, "Sure?");
 					if (confirmation == 0) {
 						int[] maps_ids = getmapsIdsByRowNumbers(selected_rows_ids);
 						for (int i : maps_ids) {

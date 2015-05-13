@@ -14,11 +14,12 @@ public class MapsTableModel implements TableModel {
 	List<Map> maps;
 	Data data;
 	
+	
 	public MapsTableModel(List<Map> maps) throws SQLException{
 		data = new Data();
 		this.maps = maps;
 	}
-	
+
 	
 	@Override
 	public void addTableModelListener(TableModelListener l) {}
@@ -66,7 +67,7 @@ public class MapsTableModel implements TableModel {
 	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex) {
 		// return true on ainuke, mida on vaja, et tabelit muuta saaks
-		if (columnIndex==1) {
+		if (columnIndex==0 || columnIndex==1) {
 			return true;
 		}
 		return false;
