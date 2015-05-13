@@ -12,10 +12,12 @@ import java.util.List;
 
 import javax.swing.JApplet;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.TableColumn;
 
 
@@ -76,16 +78,22 @@ public class Gui extends JApplet implements MouseListener {
 		TableColumn column = null;
 		for (int i = 0; i < 3; i++) {
 		    column = table.getColumnModel().getColumn(i);
-		    if (i == 1) {
-		        column.setPreferredWidth(200); //teine column on suurem
-		    } else {
-		        column.setPreferredWidth(50);
-		    }
+		    switch (i) {
+			case 0:
+				column.setPreferredWidth(40); //esimene column
+				break;
+			case 1:
+				column.setPreferredWidth(200); //esimene column
+				break;
+			case 2:
+				column.setPreferredWidth(70); //esimene column
+				break;
+			}
 		}
 	}
 
 	private void setMyLayout(){
-		setSize(700, 600);
+		setSize(600, 600);
 		setLayout(new BorderLayout());
 		add(BorderLayout.CENTER, main_panel);
 		add(BorderLayout.SOUTH, south_panel);
@@ -114,18 +122,17 @@ public class Gui extends JApplet implements MouseListener {
 	    scroll_pane.getViewport().remove(table);
 		scroll_pane.getViewport().add(table);
 		setTableColumnWidth();
-		// hiirekuular läheb header'is pärast tabeli uuesti loomist kaduma
 		table.getTableHeader().addMouseListener(this);
 	}
 	
-	private int[] returnSelectedRowsNumbers(){	
+	private int[] returnSelectedMapsNumbers(){	
 		return table.getSelectedRows();
 	}
 	
-	private int[] getmapsIdsByRowNumbers(int[] selected_rows_ids){
-		int maps_ids[] = new int[selected_rows_ids.length];
-		for(int i=0; i<selected_rows_ids.length; i++){
-			maps_ids[i] = maps.get(selected_rows_ids[i]).getId();
+	private int[] getmapsIdsByMapNumbers(int[] selected_maps_ids){
+		int maps_ids[] = new int[selected_maps_ids.length];
+		for(int i=0; i<selected_maps_ids.length; i++){
+			maps_ids[i] = maps.get(selected_maps_ids[i]).getId();
 		}
 		return maps_ids;
 	}
@@ -144,15 +151,24 @@ public class Gui extends JApplet implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		if (e.getSource() == update_button) {
 			updateTable();
-		} else if (e.getSource() == delete_map_button) {
-			int selected_rows_ids[] = returnSelectedRowsNumbers();
-			if (selected_rows_ids.length == 0) {
-				JOptionPane.showMessageDialog(this, "No maps selected.");
-			} else {
+		} 
+		else if (e.getSource() == delete_map_button) {
+			int selected_maps_ids[] = returnSelectedMapsNumbers();
+			if (selected_maps_ids.length == 0) {
+				JOptionPane.showMessageDialog(this, "Select maps to delete!", "Error", 0);;
+			}
+			else {
 				try {
-					int confirmation = JOptionPane.showConfirmDialog(this, "Sure?");
-					if (confirmation == 0) {
-						int[] maps_ids = getmapsIdsByRowNumbers(selected_rows_ids);
+					String[] options = {"YES!", "NO"};
+					JPanel panel = new JPanel();
+					JLabel lbl = new JLabel("Are You Sure?");
+					panel.add(lbl);
+					
+					int selectedOption = JOptionPane.showOptionDialog(this, panel, "Delete?", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options , options[0]);
+					System.out.println(selectedOption);
+					if(selectedOption == 0)
+					{
+						int[] maps_ids = getmapsIdsByMapNumbers(selected_maps_ids);
 						for (int i : maps_ids) {
 							System.out.println(i);
 						}
@@ -160,14 +176,18 @@ public class Gui extends JApplet implements MouseListener {
 						data.deleteMaps(maps_ids);
 						updateTable();
 					}
-				} catch (SQLException e1) {
+					
+				}
+				catch (SQLException e1) {
 					e1.printStackTrace();
 				}
 			}
-		} else if (e.getSource() == table.getTableHeader()) {
-			int clicked_header_column_id = table.columnAtPoint(e.getPoint());
-			updateDatabaseManagerSortValue(clicked_header_column_id);
-			updateTable();
+		}
+		else if (e.getSource() == add_map_button) {
+			
+		}
+		else if (e.getSource() == edit_map_button) {
+			
 		}
 	}
 

@@ -1,7 +1,9 @@
 package ee.tlu.base;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -32,10 +34,28 @@ public class Map {
 		}
 	}
 	
-	public String prettyTime(){
+	public String getPrettyTime(){
 		time = new PrettyTime();
 		return time.format(date);
 	}
+	
+	public String getPrettyDateTime(){
+		// Create an instance of SimpleDateFormat used for formatting 
+		// the string representation of date (month/day/year)
+		DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+
+		// Get the date today using Calendar object.
+		date = Calendar.getInstance().getTime();        
+		// Using DateFormat format method we can create a string 
+		// representation of a date with the defined format.
+		String reportDate = df.format(date);
+
+		// Print what date is today!
+		//System.out.println("Report Date: " + reportDate);
+		return reportDate;
+	}
+	
+	
 	
 	public String getName() {
 		return name;

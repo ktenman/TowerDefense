@@ -37,9 +37,9 @@ public class MapsTableModel implements TableModel {
 	@Override
 	public String getColumnName(int columnIndex) {
 		if(columnIndex == 0){
-			return "Name";
+			return "Map's name";
 		} else if(columnIndex == 1){
-			return "Content";
+			return "Description";
 		} else if(columnIndex == 2){
 			return "Date";
 		}
@@ -59,7 +59,7 @@ public class MapsTableModel implements TableModel {
 		} else if(columnIndex == 1){
 			return map.getContent();
 		} else if(columnIndex == 2){
-			return map.prettyTime();
+			return map.getPrettyDateTime();
 		}
 		return null;
 	}
