@@ -3,6 +3,8 @@ package ee.tlu.base;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
@@ -18,10 +20,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 import javax.swing.table.TableColumn;
 
 
-public class Gui extends JApplet implements MouseListener {
+public class Gui extends JApplet implements MouseListener, ActionListener {
 		
 	List<Map> maps = new ArrayList<>();
 	Data data = null;
@@ -37,12 +40,14 @@ public class Gui extends JApplet implements MouseListener {
 	JPanel delete_map_button_panel = new JPanel();
 	JPanel add_map_button_panel = new JPanel();
 	JPanel edit_map_button_panel = new JPanel();
+	private final Timer t = new Timer(10000, this);
 	
 	public void init(){
 		setMyLayout();
 		getTable();
 		createTableView();
 		setVisible(true);
+		t.start();
 	}
 	
 	private void getTable(){				
@@ -64,6 +69,7 @@ public class Gui extends JApplet implements MouseListener {
 		} catch(SQLException e){
 			e.printStackTrace();
 		}
+		
 	}
 	
 	private void createTableView(){	
@@ -202,6 +208,13 @@ public class Gui extends JApplet implements MouseListener {
 
 	@Override
 	public void mouseReleased(MouseEvent e) {}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == t) {
+			updateTable();
+		}	
+	}
 
 }
 

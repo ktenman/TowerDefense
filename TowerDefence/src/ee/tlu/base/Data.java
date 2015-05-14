@@ -39,7 +39,8 @@ public class Data {
 		id = sc.nextInt();
 		updateMap(name, content, id);*/
 		
-		for (Map map: getMaps()) {
+		 System.out.println(getMap(4));
+	/*	for (Map map: getMaps()) {
 			System.out.println(map.toString());
 		}
 		List < Map > maps = getMaps();
@@ -66,7 +67,8 @@ public class Data {
 			}
 		}
 		System.out.println(Arrays.deepToString(matrix));
-		System.out.println(Arrays.deepToString(map));	
+		System.out.println(Arrays.deepToString(map));	*/
+		
 	}
 	
 
@@ -128,6 +130,14 @@ public class Data {
 
 	public static void main(String[] args) throws SQLException{
 		Data ins = new Data();	
+	}
+	
+	public Map getMap(int map_id) throws SQLException {
+		Map map = new Map(0, null, null, "2015-05-12 23:25:44.0");
+		Statement statement = connection.createStatement();
+		String s = "SELECT * FROM towerdefence WHERE id=5";
+		ResultSet result = statement.executeQuery(s);
+		return map;
 	}
 
 }

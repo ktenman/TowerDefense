@@ -52,11 +52,12 @@ public class Map {
 
 		// Print what date is today!
 		//System.out.println("Report Date: " + reportDate);
+		System.out.println();
 		return reportDate;
 	}
 	
 	
-	
+
 	public String getName() {
 		return name;
 	}
@@ -71,6 +72,10 @@ public class Map {
 
 	public Date getDate() {
 		return date;
+	}
+
+	public PrettyTime getTime() {
+		return time;
 	}
 
 	public void setName(String name) {
@@ -89,13 +94,18 @@ public class Map {
 		this.date = date;
 	}
 
+	public void setTime(PrettyTime time) {
+		this.time = time;
+	}
+
 	@Override
 	public String toString() {
 		return String
-				.format("Map [name=%s, content=%s, id=%s, date=%s, getName()=%s, getContent()=%s, getId()=%s, getDate()=%s, getClass()=%s, hashCode()=%s, toString()=%s]",
-						name, content, id, date, getName(), getContent(),
-						getId(), getDate(), getClass(), hashCode(),
+				.format("Map [name=%s, content=%s, id=%s, date=%s, time=%s, getName()=%s, getContent()=%s, getId()=%s, getDate()=%s, getTime()=%s, getClass()=%s, hashCode()=%s, toString()=%s]",
+						name, content, id, date, time, getName(), getContent(),
+						getId(), getDate(), getTime(), getClass(), hashCode(),
 						super.toString());
 	}
-
+	
+	
 }
